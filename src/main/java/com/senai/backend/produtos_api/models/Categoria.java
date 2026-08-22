@@ -1,5 +1,6 @@
 package com.senai.backend.produtos_api.models;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,25 +15,25 @@ public class Categoria {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotBlank(message="O nome da categoria é obrigatorio")
     @Column(name = "nome")
-    public String nome;
+    public String nome; 
 
     public Categoria() {
     }
 
-    public Categoria(long id, @NotBlank(message = "O nome da categoria é obrigatorio") String nome) {
+    public Categoria(Long id, @NotBlank(message = "O nome da categoria é obrigatorio") String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

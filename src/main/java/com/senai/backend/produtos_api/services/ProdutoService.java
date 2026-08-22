@@ -1,5 +1,6 @@
 package com.senai.backend.produtos_api.services;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -38,6 +39,7 @@ public class ProdutoService {
         produto.setNome(produtoAtualizando.getNome());
         produto.setDescricao(produtoAtualizando.getDescricao());
         produto.setPreco(produtoAtualizando.getPreco());
+        produto.setCategoria(produtoAtualizando.getCategoria());
         return produtoRepository.save(produto);
     }
 
@@ -47,4 +49,11 @@ public class ProdutoService {
         
     }
 
+    public List<Produto> buscarPorCategoria(Long categoriaId) {
+        return produtoRepository.buscarPorCategoria(categoriaId);
+    }
+
+    public List<Produto> buscarPorFaixaDePreco(BigDecimal min, BigDecimal max) {
+        return produtoRepository.buscarPorFaixaDePreco(min, max);
+    };
 }
